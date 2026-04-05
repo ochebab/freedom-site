@@ -13,6 +13,32 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      goToNext();
+    } else if (isRightSwipe) {
+      goToPrev();
+    }
+  };
 
   const goToSlide = useCallback((index: number) => {
     setDirection(index > activeIndex ? 1 : -1);
@@ -53,7 +79,13 @@ export function HeroCarousel({ slides, autoPlayInterval = 5000 }: HeroCarouselPr
 
   return (
     <section className="hero-carousel pt-[20px] md:pt-[40px]">
-      <div className="hero-carousel__wrapper relative w-full max-w-[1100px] mx-[16px] md:mx-auto h-[600px] md:h-[482px] rounded-[20px] overflow-hidden" style={{ width: 'calc(100% - 32px)' }}>
+      <div 
+        className="hero-carousel__wrapper relative w-full max-w-[1100px] mx-[16px] md:mx-auto h-[600px] md:h-[482px] rounded-[20px] overflow-hidden touch-pan-y" 
+        style={{ width: 'calc(100% - 32px)' }}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
       
       {/* Slides */}
       <AnimatePresence initial={false} custom={direction} mode="popLayout">
