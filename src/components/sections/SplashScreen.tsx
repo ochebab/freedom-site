@@ -36,10 +36,91 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
         >
           {/* Content - Image takes full height including header area */}
           <div className="splash-screen__content h-full flex flex-col md:flex-row">
-            {/* Left - Image with TAKEOVER effect - full bleed */}
+            {/* Left - Image with TAKEOVER effect + Aurora Borealis */}
             <div className="splash-screen__image relative w-full md:w-[60%] h-full bg-black overflow-hidden">
+              {/* Aurora Borealis Effect - Multiple animated gradient layers */}
+              <div className="absolute inset-0 z-0">
+                {/* Base gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-[#00273F] via-black to-black" />
+                
+                {/* Aurora Layer 1 - Slow wave */}
+                <motion.div
+                  className="absolute inset-0 opacity-60"
+                  style={{
+                    background: 'radial-gradient(ellipse 80% 50% at 20% 40%, #00273F 0%, transparent 50%)',
+                  }}
+                  animate={{
+                    opacity: [0.4, 0.7, 0.4],
+                    scale: [1, 1.2, 1],
+                    x: [0, 30, 0],
+                    y: [0, -20, 0],
+                  }}
+                  transition={{
+                    duration: 8,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                  }}
+                />
+                
+                {/* Aurora Layer 2 - Medium wave */}
+                <motion.div
+                  className="absolute inset-0 opacity-50"
+                  style={{
+                    background: 'radial-gradient(ellipse 60% 40% at 70% 60%, #00273F 0%, transparent 40%)',
+                  }}
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                    scale: [1.1, 1, 1.1],
+                    x: [-20, 20, -20],
+                    y: [10, -10, 10],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 1,
+                  }}
+                />
+                
+                {/* Aurora Layer 3 - Fast shimmer */}
+                <motion.div
+                  className="absolute inset-0 opacity-40"
+                  style={{
+                    background: 'linear-gradient(135deg, transparent 0%, #00273F 30%, transparent 60%, #00273F 80%, transparent 100%)',
+                  }}
+                  animate={{
+                    opacity: [0.2, 0.5, 0.2],
+                    backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+                  }}
+                  transition={{
+                    duration: 10,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.5,
+                  }}
+                />
+                
+                {/* Aurora Layer 4 - Top glow */}
+                <motion.div
+                  className="absolute top-0 left-0 right-0 h-1/2"
+                  style={{
+                    background: 'linear-gradient(180deg, #00273F 0%, transparent 100%)',
+                  }}
+                  animate={{
+                    opacity: [0.3, 0.6, 0.3],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 2,
+                  }}
+                />
+              </div>
+
+              {/* Image with takeover effect */}
               <motion.div
-                className="absolute inset-0"
+                className="absolute inset-0 z-10"
                 initial={{ scale: 1.4, x: -80 }}
                 animate={{ scale: 1.15, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
