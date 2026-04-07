@@ -34,15 +34,29 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Freedom Logo - Top left (respects safety area on mobile) */}
-          <div className="absolute top-[20px] left-[20px] md:top-[20px] md:left-[30px] z-20">
-            <Image
-              src="/logos/freedom-logo-white-orange-blue.png"
-              alt="Freedom Mobile"
-              width={140}
-              height={32}
-              className="h-[28px] md:h-[32px] w-auto"
-            />
+          {/* Header bar - Logo left, Close right (aligned with Container on desktop) */}
+          <div className="absolute top-0 left-0 right-0 z-20">
+            <div className="mx-auto w-full px-[20px] md:px-[15px] md:max-w-[1100px] py-[20px] md:py-[24px] flex items-center justify-between">
+              {/* Freedom Logo */}
+              <Image
+                src="/logos/freedom-logo-white-orange-blue.png"
+                alt="Freedom Mobile"
+                width={140}
+                height={32}
+                className="h-[28px] md:h-[32px] w-auto"
+              />
+              
+              {/* Close button - Desktop only */}
+              <button
+                onClick={handleClose}
+                className="hidden md:flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+              >
+                <span>Close</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
           </div>
 
           {/* Aurora Borealis Effect - Full page background (GPU optimized) */}
@@ -226,10 +240,26 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
                 Shop Samsung Galaxy z Flip 5
               </motion.a>
 
-              {/* Continue to website link */}
+              {/* Learn more link - Desktop only */}
+              <a
+                href="/samsung-galaxy-z-flip5"
+                className="hidden md:flex items-center gap-1 mt-4 text-white hover:text-white/80 transition-colors text-sm underline underline-offset-4"
+              >
+                <span>Learn more</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+
+              {/* Disclaimer text - Desktop only */}
+              <p className="hidden md:block mt-6 text-white/40 text-xs max-w-[400px] leading-relaxed">
+                Vivamus sit et tempor neque elit turpis duis platea. Ut est ut nunc nisl ut. Interdum cras aliquam facilisi proin elit porttitor proin nulla. Interdum eu in elementum.
+              </p>
+
+              {/* Continue to website link - Mobile only */}
               <button
                 onClick={handleClose}
-                className="splash-screen__skip mt-3 md:mt-6 text-white/60 text-xs md:text-sm hover:text-white transition-colors underline underline-offset-4"
+                className="md:hidden splash-screen__skip mt-3 text-white/60 text-xs hover:text-white transition-colors underline underline-offset-4"
               >
                 Continue to website
               </button>
