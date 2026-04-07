@@ -168,8 +168,8 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
               {/* Image with takeover effect */}
               <motion.div
                 className="relative w-full h-full"
-                initial={{ scale: 1.2, x: -80 }}
-                animate={{ scale: 0.85, x: 0 }}
+                initial={{ scale: 1.4, x: -80 }}
+                animate={{ scale: 1.05, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <Image
@@ -186,14 +186,14 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
             <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden flex-shrink-0" />
 
             {/* Right - Text Content - centered, shifted left on desktop */}
-            <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-16 lg:px-24 pt-3 md:py-0 w-full md:w-[40%] md:-ml-10 flex-shrink-0">
+            <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-16 lg:px-24 pt-1 md:py-0 w-full md:w-[40%] md:-ml-10 flex-shrink-0">
               {/* Samsung Logo */}
               <Image
                 src="/images/samsung-logo-white.webp"
                 alt="Samsung"
                 width={120}
                 height={24}
-                className="h-[20px] md:h-[24px] w-auto mb-4"
+                className="h-[20px] md:h-[24px] w-auto mb-2 md:mb-4"
               />
               
               {/* Title */}
