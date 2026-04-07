@@ -13,6 +13,7 @@ interface AppShellProps {
 export function AppShell({ children }: AppShellProps) {
   const [splashEnabled, setSplashEnabled] = useState(true);
   const [splashDuration, setSplashDuration] = useState(10);
+  const [splashType, setSplashType] = useState<SplashType>('splash1');
   const [isLoaded, setIsLoaded] = useState(false);
 
   // Load settings from localStorage on mount
@@ -27,6 +28,9 @@ export function AppShell({ children }: AppShellProps) {
         if (typeof settings.splashDuration === 'number') {
           setSplashDuration(settings.splashDuration);
         }
+        if (settings.splashType) {
+          setSplashType(settings.splashType);
+        }
       } catch (e) {
         console.error('Failed to parse splash settings', e);
       }
@@ -37,9 +41,9 @@ export function AppShell({ children }: AppShellProps) {
   // Save settings to localStorage when they change
   useEffect(() => {
     if (isLoaded) {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify({ splashEnabled, splashDuration }));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ splashEnabled, splashDuration, splashType }));
     }
-  }, [splashEnabled, splashDuration, isLoaded]);
+  }, [splashEnabled, splashDuration, splashType, isLoaded]);
 
   const handleSplashEnabledChange = (enabled: boolean) => {
     setSplashEnabled(enabled);
@@ -49,16 +53,22 @@ export function AppShell({ children }: AppShellProps) {
     setSplashDuration(duration);
   };
 
+  const handleSplashTypeChange = (type: SplashType) => {
+    setSplashType(type);
+  };
+
   return (
     <>
       <TopBar
         splashEnabled={splashEnabled}
         splashDuration={splashDuration}
+        splashType={splashType}
         onSplashEnabledChange={handleSplashEnabledChange}
         onSplashDurationChange={handleSplashDurationChange}
+        onSplashTypeChange={handleSplashTypeChange}
       />
       <MainNav />
-      <SplashContext.Provider value={{ splashEnabled, splashDuration }}>
+      <SplashContext.Provider value={{ splashEnabled, splashDuration, splashType }}>
         {children}
       </SplashContext.Provider>
     </>
@@ -67,14 +77,18 @@ export function AppShell({ children }: AppShellProps) {
 
 import { createContext, useContext } from 'react';
 
+export type SplashType = 'splash1' | 'splash2' | 'splash3';
+
 interface SplashContextType {
   splashEnabled: boolean;
   splashDuration: number;
+  splashType: SplashType;
 }
 
 export const SplashContext = createContext<SplashContextType>({
   splashEnabled: true,
   splashDuration: 10,
+  splashType: 'splash1',
 });
 
 export function useSplashSettings() {

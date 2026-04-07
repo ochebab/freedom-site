@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Container } from './Container';
 import { SettingsPanel } from './SettingsPanel';
+import type { SplashType } from './AppShell';
 
 const PROVINCES = ['AB', 'BC', 'MB', 'ON'] as const;
 type Province = typeof PROVINCES[number];
@@ -10,15 +11,19 @@ type Province = typeof PROVINCES[number];
 interface TopBarProps {
   splashEnabled?: boolean;
   splashDuration?: number;
+  splashType?: SplashType;
   onSplashEnabledChange?: (enabled: boolean) => void;
   onSplashDurationChange?: (duration: number) => void;
+  onSplashTypeChange?: (type: SplashType) => void;
 }
 
 export function TopBar({
   splashEnabled = true,
   splashDuration = 10,
+  splashType = 'splash1',
   onSplashEnabledChange,
   onSplashDurationChange,
+  onSplashTypeChange,
 }: TopBarProps) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState<Province>('ON');
@@ -67,12 +72,14 @@ export function TopBar({
             </div>
 
             {/* Settings Panel */}
-            {onSplashEnabledChange && onSplashDurationChange && (
+            {onSplashEnabledChange && onSplashDurationChange && onSplashTypeChange && (
               <SettingsPanel
                 splashEnabled={splashEnabled}
                 splashDuration={splashDuration}
+                splashType={splashType}
                 onSplashEnabledChange={onSplashEnabledChange}
                 onSplashDurationChange={onSplashDurationChange}
+                onSplashTypeChange={onSplashTypeChange}
               />
             )}
           </div>

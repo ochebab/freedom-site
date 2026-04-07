@@ -2,19 +2,30 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import type { SplashType } from './AppShell';
 
 interface SettingsPanelProps {
   splashEnabled: boolean;
   splashDuration: number;
+  splashType: SplashType;
   onSplashEnabledChange: (enabled: boolean) => void;
   onSplashDurationChange: (duration: number) => void;
+  onSplashTypeChange: (type: SplashType) => void;
 }
+
+const SPLASH_TYPES: { value: SplashType; label: string }[] = [
+  { value: 'splash1', label: 'Splash Screen 1' },
+  { value: 'splash2', label: 'Splash Screen 2' },
+  { value: 'splash3', label: 'Splash Screen 3' },
+];
 
 export function SettingsPanel({
   splashEnabled,
   splashDuration,
+  splashType,
   onSplashEnabledChange,
   onSplashDurationChange,
+  onSplashTypeChange,
 }: SettingsPanelProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -61,6 +72,26 @@ export function SettingsPanel({
           >
             <h3 className="text-sm font-medium mb-4 text-gray-700">Paramètres</h3>
             
+            {/* Splash Type Selector */}
+            <div className="settings-panel__option mb-4">
+              <span className="text-sm text-gray-600 block mb-2">Type de Splash</span>
+              <div className="flex flex-col gap-1">
+                {SPLASH_TYPES.map((type) => (
+                  <button
+                    key={type.value}
+                    onClick={() => onSplashTypeChange(type.value)}
+                    className={`px-3 py-2 text-xs rounded-lg transition-colors text-left ${
+                      splashType === type.value
+                        ? 'bg-[#f26a21] text-white'
+                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    }`}
+                  >
+                    {type.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             {/* Splash Screen Toggle */}
             <div className="settings-panel__option flex items-center justify-between mb-4">
               <span className="text-sm text-gray-600">Splash Screen</span>
