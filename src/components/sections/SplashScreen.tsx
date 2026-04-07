@@ -74,54 +74,57 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
               }}
             />
             
-            {/* Aurora Layer - Turquoise accent */}
+            {/* Aurora Layer - Turquoise accent (moving) */}
             <motion.div
               className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 55% 40% at 35% 50%, #0891b2 0%, transparent 50%)',
-                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.15, 0.3, 0.15],
+                opacity: [0.15, 0.35, 0.15],
+                x: [0, 30, 0],
+                y: [0, -20, 0],
               }}
               transition={{
-                duration: 7,
+                duration: 10,
                 repeat: Infinity,
                 ease: 'easeInOut',
                 delay: 0.8,
               }}
             />
             
-            {/* Aurora Layer - Orange accent (subtle, right side) */}
+            {/* Aurora Layer - Orange accent (moving, right side) */}
             <motion.div
               className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 40% 35% at 75% 45%, #f26a21 0%, transparent 50%)',
-                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.1, 0.2, 0.1],
+                opacity: [0.12, 0.25, 0.12],
+                x: [0, -25, 0],
+                y: [0, 15, 0],
               }}
               transition={{
-                duration: 9,
+                duration: 12,
                 repeat: Infinity,
                 ease: 'easeInOut',
                 delay: 2,
               }}
             />
             
-            {/* Aurora Layer - Orange glow (bottom right, very subtle) */}
+            {/* Aurora Layer - Orange glow (moving, bottom right) */}
             <motion.div
               className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 50% 40% at 90% 80%, #c2410c 0%, transparent 45%)',
-                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.08, 0.15, 0.08],
+                opacity: [0.1, 0.2, 0.1],
+                x: [0, -20, 0],
+                y: [0, -15, 0],
               }}
               transition={{
-                duration: 6,
+                duration: 8,
                 repeat: Infinity,
                 ease: 'easeInOut',
                 delay: 3,
