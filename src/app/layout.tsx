@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logos/favicon.ico",
   },
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: {
+      index: false,
+      follow: false,
+      noimageindex: true,
+    },
+  },
 };
 
 export default function RootLayout({
