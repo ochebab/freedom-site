@@ -32,115 +32,154 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5, ease: 'easeOut' }}
-          className="splash-screen fixed inset-0 z-[100] bg-black"
+          className="splash-screen fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Content - Image takes full height including header area */}
-          <div className="splash-screen__content h-full flex flex-col md:flex-row">
-            {/* Left - Image with TAKEOVER effect + Aurora Borealis */}
-            <div className="splash-screen__image relative w-full md:w-[60%] h-full bg-black overflow-hidden">
-              {/* Aurora Borealis Effect - Multiple animated gradient layers */}
-              <div className="absolute inset-0 z-0">
-                {/* Base gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-[#00273F] via-black to-black" />
-                
-                {/* Aurora Layer 1 - Slow wave */}
-                <motion.div
-                  className="absolute inset-0 opacity-60"
-                  style={{
-                    background: 'radial-gradient(ellipse 80% 50% at 20% 40%, #00273F 0%, transparent 50%)',
-                  }}
-                  animate={{
-                    opacity: [0.4, 0.7, 0.4],
-                    scale: [1, 1.2, 1],
-                    x: [0, 30, 0],
-                    y: [0, -20, 0],
-                  }}
-                  transition={{
-                    duration: 8,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                  }}
-                />
-                
-                {/* Aurora Layer 2 - Medium wave */}
-                <motion.div
-                  className="absolute inset-0 opacity-50"
-                  style={{
-                    background: 'radial-gradient(ellipse 60% 40% at 70% 60%, #00273F 0%, transparent 40%)',
-                  }}
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                    scale: [1.1, 1, 1.1],
-                    x: [-20, 20, -20],
-                    y: [10, -10, 10],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 1,
-                  }}
-                />
-                
-                {/* Aurora Layer - Turquoise accent */}
-                <motion.div
-                  className="absolute inset-0 opacity-30"
-                  style={{
-                    background: 'radial-gradient(ellipse 50% 35% at 40% 50%, #0891b2 0%, transparent 45%)',
-                  }}
-                  animate={{
-                    opacity: [0.15, 0.35, 0.15],
-                    scale: [1, 1.15, 1],
-                    x: [10, -15, 10],
-                    y: [-5, 15, -5],
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 0.8,
-                  }}
-                />
-                
-                {/* Aurora Layer 3 - Fast shimmer with turquoise */}
-                <motion.div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    background: 'linear-gradient(135deg, transparent 0%, #00273F 25%, #0e7490 45%, transparent 60%, #00273F 80%, transparent 100%)',
-                  }}
-                  animate={{
-                    opacity: [0.2, 0.5, 0.2],
-                    backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-                  }}
-                  transition={{
-                    duration: 10,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 0.5,
-                  }}
-                />
-                
-                {/* Aurora Layer 4 - Top glow */}
-                <motion.div
-                  className="absolute top-0 left-0 right-0 h-1/2"
-                  style={{
-                    background: 'linear-gradient(180deg, #00273F 0%, transparent 100%)',
-                  }}
-                  animate={{
-                    opacity: [0.3, 0.6, 0.3],
-                  }}
-                  transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    ease: 'easeInOut',
-                    delay: 2,
-                  }}
-                />
-              </div>
+          {/* Aurora Borealis Effect - Full page background */}
+          <div className="absolute inset-0 z-0">
+            {/* Base gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#00273F] via-black to-black" />
+            
+            {/* Aurora Layer 1 - Slow wave (blue) */}
+            <motion.div
+              className="absolute inset-0 opacity-60"
+              style={{
+                background: 'radial-gradient(ellipse 80% 50% at 20% 40%, #00273F 0%, transparent 50%)',
+              }}
+              animate={{
+                opacity: [0.4, 0.7, 0.4],
+                scale: [1, 1.2, 1],
+                x: [0, 50, 0],
+                y: [0, -30, 0],
+              }}
+              transition={{
+                duration: 8,
+                repeat: Infinity,
+                ease: 'easeInOut',
+              }}
+            />
+            
+            {/* Aurora Layer 2 - Medium wave (blue) */}
+            <motion.div
+              className="absolute inset-0 opacity-50"
+              style={{
+                background: 'radial-gradient(ellipse 70% 45% at 80% 60%, #00273F 0%, transparent 45%)',
+              }}
+              animate={{
+                opacity: [0.3, 0.6, 0.3],
+                scale: [1.1, 1, 1.1],
+                x: [-30, 30, -30],
+                y: [15, -15, 15],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 1,
+              }}
+            />
+            
+            {/* Aurora Layer - Turquoise accent */}
+            <motion.div
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: 'radial-gradient(ellipse 55% 40% at 35% 50%, #0891b2 0%, transparent 50%)',
+              }}
+              animate={{
+                opacity: [0.15, 0.35, 0.15],
+                scale: [1, 1.2, 1],
+                x: [20, -25, 20],
+                y: [-10, 20, -10],
+              }}
+              transition={{
+                duration: 7,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.8,
+              }}
+            />
+            
+            {/* Aurora Layer - Orange accent (subtle, right side) */}
+            <motion.div
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: 'radial-gradient(ellipse 40% 35% at 75% 45%, #f26a21 0%, transparent 50%)',
+              }}
+              animate={{
+                opacity: [0.1, 0.25, 0.1],
+                scale: [1, 1.15, 1],
+                x: [-10, 20, -10],
+                y: [5, -15, 5],
+              }}
+              transition={{
+                duration: 9,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2,
+              }}
+            />
+            
+            {/* Aurora Layer - Orange glow (bottom right, very subtle) */}
+            <motion.div
+              className="absolute inset-0 opacity-15"
+              style={{
+                background: 'radial-gradient(ellipse 50% 40% at 90% 80%, #c2410c 0%, transparent 45%)',
+              }}
+              animate={{
+                opacity: [0.08, 0.18, 0.08],
+                scale: [1.05, 1, 1.05],
+              }}
+              transition={{
+                duration: 6,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 3,
+              }}
+            />
+            
+            {/* Aurora Layer - Shimmer with mixed colors */}
+            <motion.div
+              className="absolute inset-0 opacity-30"
+              style={{
+                background: 'linear-gradient(135deg, transparent 0%, #00273F 20%, #0e7490 40%, transparent 55%, #f26a21 75%, transparent 100%)',
+                backgroundSize: '200% 200%',
+              }}
+              animate={{
+                opacity: [0.15, 0.35, 0.15],
+                backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
+              }}
+              transition={{
+                duration: 12,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 0.5,
+              }}
+            />
+            
+            {/* Aurora Layer - Top glow */}
+            <motion.div
+              className="absolute top-0 left-0 right-0 h-1/2"
+              style={{
+                background: 'linear-gradient(180deg, #00273F 0%, transparent 100%)',
+              }}
+              animate={{
+                opacity: [0.25, 0.5, 0.25],
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: 'easeInOut',
+                delay: 2,
+              }}
+            />
+          </div>
 
+          {/* Content - Image takes full height including header area */}
+          <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row">
+            {/* Left - Image with TAKEOVER effect */}
+            <div className="splash-screen__image relative w-full md:w-[60%] h-full overflow-hidden">
               {/* Image with takeover effect */}
               <motion.div
-                className="absolute inset-0 z-10"
+                className="absolute inset-0"
                 initial={{ scale: 1.4, x: -80 }}
                 animate={{ scale: 1.15, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
