@@ -9,7 +9,7 @@ interface SplashScreenProps {
   autoCloseDelay?: number;
 }
 
-export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenProps) {
+export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {
@@ -81,9 +81,9 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
                 background: 'radial-gradient(ellipse 55% 40% at 35% 50%, #0891b2 0%, transparent 50%)',
               }}
               animate={{
-                opacity: [0.15, 0.35, 0.15],
-                x: [0, 30, 0],
-                y: [0, -20, 0],
+                opacity: [0.25, 0.5, 0.25],
+                x: [0, 40, 0],
+                y: [0, -30, 0],
               }}
               transition={{
                 duration: 10,
@@ -100,9 +100,9 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
                 background: 'radial-gradient(ellipse 40% 35% at 75% 45%, #f26a21 0%, transparent 50%)',
               }}
               animate={{
-                opacity: [0.12, 0.25, 0.12],
-                x: [0, -25, 0],
-                y: [0, 15, 0],
+                opacity: [0.2, 0.4, 0.2],
+                x: [0, -35, 0],
+                y: [0, 25, 0],
               }}
               transition={{
                 duration: 12,
@@ -119,9 +119,9 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
                 background: 'radial-gradient(ellipse 50% 40% at 90% 80%, #c2410c 0%, transparent 45%)',
               }}
               animate={{
-                opacity: [0.1, 0.2, 0.1],
-                x: [0, -20, 0],
-                y: [0, -15, 0],
+                opacity: [0.18, 0.35, 0.18],
+                x: [0, -30, 0],
+                y: [0, -20, 0],
               }}
               transition={{
                 duration: 8,
