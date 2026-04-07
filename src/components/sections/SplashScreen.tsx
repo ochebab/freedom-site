@@ -150,10 +150,10 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
           {/* Content - Image takes full height including header area */}
           <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row">
             {/* Left - Image with TAKEOVER effect */}
-            <div className="splash-screen__image relative w-full md:w-[60%] h-[60%] md:h-full overflow-hidden">
+            <div className="splash-screen__image relative w-full md:w-[60%] h-[60%] md:h-full flex items-center justify-center">
               {/* Image with takeover effect */}
               <motion.div
-                className="absolute inset-0"
+                className="relative w-full h-full"
                 initial={{ scale: 1.4, x: -80 }}
                 animate={{ scale: 1.15, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
@@ -162,14 +162,17 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
                   src="/images/splash-image-1.png"
                   alt="Samsung Galaxy Z Flip5"
                   fill
-                  className="object-cover object-center"
+                  className="object-contain object-center"
                   priority
                 />
               </motion.div>
             </div>
 
+            {/* Mobile separator */}
+            <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden" />
+
             {/* Right - Text Content - centered, shifted left on desktop */}
-            <div className="splash-screen__text flex flex-col justify-center items-center text-center px-8 md:px-16 lg:px-24 py-8 md:py-0 w-full md:w-[40%] md:-ml-10">
+            <div className="splash-screen__text flex flex-col justify-center items-center text-center px-6 md:px-16 lg:px-24 py-4 md:py-0 w-full md:w-[40%] md:-ml-10">
               {/* Samsung Logo */}
               <Image
                 src="/images/samsung-logo-white.webp"
@@ -180,28 +183,28 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
               />
               
               {/* Title */}
-              <h1 className="text-white text-[2.5rem] md:text-[4rem] leading-none mb-6">
+              <h1 className="text-white text-[1.75rem] md:text-[4rem] leading-none mb-4 md:mb-6">
                 Get the Samsung<br />Galaxy Z Flip5.
               </h1>
 
               {/* Price */}
-              <div className="mb-3">
-                <span className="text-[#f26a21] text-[3rem] md:text-[4rem] leading-none">$24</span>
-                <span className="text-[#f26a21] text-[1.5rem] md:text-[2rem]">/mo.</span>
+              <div className="mb-2 md:mb-3">
+                <span className="text-[#f26a21] text-[2.25rem] md:text-[4rem] leading-none">$24</span>
+                <span className="text-[#f26a21] text-[1.25rem] md:text-[2rem]">/mo.</span>
               </div>
 
               {/* Subtitle */}
-              <p className="text-white text-[0.9375rem] md:text-[1rem] mb-1">
+              <p className="text-white text-[0.8125rem] md:text-[1rem] mb-1">
                 with TradeUp on a $50/mo. plan.
               </p>
-              <p className="text-white/50 text-[0.75rem] md:text-[0.8125rem] mb-8">
+              <p className="text-white/50 text-[0.6875rem] md:text-[0.8125rem] mb-4 md:mb-8">
                 2-year term required.
               </p>
 
               {/* CTA Button - Pill shape with hover animation */}
               <motion.a
                 href="/samsung-galaxy-z-flip5"
-                className="splash-screen__cta inline-block bg-[#f26a21] text-white px-8 py-4 rounded-full text-[0.9375rem]"
+                className="splash-screen__cta inline-block bg-[#f26a21] text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-[0.875rem] md:text-[0.9375rem]"
                 initial={{ backgroundColor: '#f26a21' }}
                 whileHover={{ backgroundColor: '#ffffff', color: '#000000' }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
@@ -212,7 +215,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
               {/* Continue to website link */}
               <button
                 onClick={handleClose}
-                className="splash-screen__skip mt-6 text-white/60 text-sm hover:text-white transition-colors underline underline-offset-4"
+                className="splash-screen__skip mt-4 md:mt-6 text-white/60 text-xs md:text-sm hover:text-white transition-colors underline underline-offset-4"
               >
                 Continue to website
               </button>
