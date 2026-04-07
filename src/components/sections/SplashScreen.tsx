@@ -183,7 +183,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
             </div>
 
             {/* Mobile separator */}
-            <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden flex-shrink-0" />
+            <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden flex-shrink-0 -mt-[5px]" />
 
             {/* Right - Text Content - centered, shifted left on desktop */}
             <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-16 lg:px-24 pt-1 md:py-0 w-full md:w-[40%] md:-ml-10 flex-shrink-0">
