@@ -34,8 +34,8 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Freedom Logo - Top left */}
-          <div className="absolute top-[10px] left-[10px] md:top-[20px] md:left-[30px] z-20">
+          {/* Freedom Logo - Top left (respects safety area on mobile) */}
+          <div className="absolute top-[20px] left-[20px] md:top-[20px] md:left-[30px] z-20">
             <Image
               src="/logos/freedom-logo-white-orange-blue.png"
               alt="Freedom Mobile"
