@@ -34,22 +34,20 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Aurora Borealis Effect - Full page background */}
-          <div className="absolute inset-0 z-0">
+          {/* Aurora Borealis Effect - Full page background (GPU optimized) */}
+          <div className="absolute inset-0 z-0 will-change-transform">
             {/* Base gradient */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#00273F] via-black to-black" />
             
             {/* Aurora Layer 1 - Slow wave (blue) */}
             <motion.div
-              className="absolute inset-0 opacity-60"
+              className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 80% 50% at 20% 40%, #00273F 0%, transparent 50%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.4, 0.7, 0.4],
-                scale: [1, 1.2, 1],
-                x: [0, 50, 0],
-                y: [0, -30, 0],
+                opacity: [0.4, 0.6, 0.4],
               }}
               transition={{
                 duration: 8,
@@ -60,15 +58,13 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
             
             {/* Aurora Layer 2 - Medium wave (blue) */}
             <motion.div
-              className="absolute inset-0 opacity-50"
+              className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 70% 45% at 80% 60%, #00273F 0%, transparent 45%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.3, 0.6, 0.3],
-                scale: [1.1, 1, 1.1],
-                x: [-30, 30, -30],
-                y: [15, -15, 15],
+                opacity: [0.3, 0.5, 0.3],
               }}
               transition={{
                 duration: 6,
@@ -80,15 +76,13 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
             
             {/* Aurora Layer - Turquoise accent */}
             <motion.div
-              className="absolute inset-0 opacity-30"
+              className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 55% 40% at 35% 50%, #0891b2 0%, transparent 50%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.15, 0.35, 0.15],
-                scale: [1, 1.2, 1],
-                x: [20, -25, 20],
-                y: [-10, 20, -10],
+                opacity: [0.15, 0.3, 0.15],
               }}
               transition={{
                 duration: 7,
@@ -100,15 +94,13 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
             
             {/* Aurora Layer - Orange accent (subtle, right side) */}
             <motion.div
-              className="absolute inset-0 opacity-20"
+              className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 40% 35% at 75% 45%, #f26a21 0%, transparent 50%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.1, 0.25, 0.1],
-                scale: [1, 1.15, 1],
-                x: [-10, 20, -10],
-                y: [5, -15, 5],
+                opacity: [0.1, 0.2, 0.1],
               }}
               transition={{
                 duration: 9,
@@ -120,13 +112,13 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
             
             {/* Aurora Layer - Orange glow (bottom right, very subtle) */}
             <motion.div
-              className="absolute inset-0 opacity-15"
+              className="absolute inset-0 will-change-transform"
               style={{
                 background: 'radial-gradient(ellipse 50% 40% at 90% 80%, #c2410c 0%, transparent 45%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.08, 0.18, 0.08],
-                scale: [1.05, 1, 1.05],
+                opacity: [0.08, 0.15, 0.08],
               }}
               transition={{
                 duration: 6,
@@ -136,33 +128,15 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
               }}
             />
             
-            {/* Aurora Layer - Shimmer with mixed colors */}
-            <motion.div
-              className="absolute inset-0 opacity-30"
-              style={{
-                background: 'linear-gradient(135deg, transparent 0%, #00273F 20%, #0e7490 40%, transparent 55%, #f26a21 75%, transparent 100%)',
-                backgroundSize: '200% 200%',
-              }}
-              animate={{
-                opacity: [0.15, 0.35, 0.15],
-                backgroundPosition: ['0% 0%', '100% 100%', '0% 0%'],
-              }}
-              transition={{
-                duration: 12,
-                repeat: Infinity,
-                ease: 'easeInOut',
-                delay: 0.5,
-              }}
-            />
-            
             {/* Aurora Layer - Top glow */}
             <motion.div
-              className="absolute top-0 left-0 right-0 h-1/2"
+              className="absolute top-0 left-0 right-0 h-1/2 will-change-transform"
               style={{
                 background: 'linear-gradient(180deg, #00273F 0%, transparent 100%)',
+                transform: 'translateZ(0)',
               }}
               animate={{
-                opacity: [0.25, 0.5, 0.25],
+                opacity: [0.25, 0.4, 0.25],
               }}
               transition={{
                 duration: 4,
