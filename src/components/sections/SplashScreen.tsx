@@ -148,7 +148,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
           </div>
 
           {/* Content - Image takes full height including header area */}
-          <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row">
+          <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row p-[10px] md:p-0">
             {/* Left - Image with TAKEOVER effect */}
             <div className="splash-screen__image relative w-full md:w-[60%] flex-1 md:flex-none md:h-full flex items-center justify-center overflow-hidden">
               {/* Image with takeover effect */}
@@ -172,7 +172,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
             <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden flex-shrink-0" />
 
             {/* Right - Text Content - centered, shifted left on desktop */}
-            <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-16 lg:px-24 pt-3 pb-[10px] md:py-0 w-full md:w-[40%] md:-ml-10 flex-shrink-0">
+            <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-16 lg:px-24 pt-3 md:py-0 w-full md:w-[40%] md:-ml-10 flex-shrink-0">
               {/* Samsung Logo */}
               <Image
                 src="/images/samsung-logo-white.webp"
