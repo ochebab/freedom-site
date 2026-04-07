@@ -204,7 +204,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
               {/* CTA Button - Pill shape with hover animation */}
               <motion.a
                 href="/samsung-galaxy-z-flip5"
-                className="splash-screen__cta inline-block bg-[#f26a21] text-white px-6 py-3 md:px-8 md:py-4 rounded-full text-[0.875rem] md:text-[0.9375rem]"
+                className="splash-screen__cta inline-block bg-[#f26a21] text-white px-8 py-4 rounded-full text-[1rem]"
                 initial={{ backgroundColor: '#f26a21' }}
                 whileHover={{ backgroundColor: '#ffffff', color: '#000000' }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
