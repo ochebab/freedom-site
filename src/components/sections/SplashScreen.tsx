@@ -243,10 +243,10 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
               {/* Learn more link - Desktop only */}
               <a
                 href="/samsung-galaxy-z-flip5"
-                className="hidden md:flex items-center gap-1 mt-4 text-white hover:text-white/80 transition-colors text-sm underline underline-offset-4"
+                className="hidden md:flex items-center gap-1 mt-4 text-white hover:text-white/80 transition-colors text-sm"
               >
-                <span>Learn more</span>
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <span className="underline underline-offset-4">Learn more</span>
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </a>
