@@ -82,11 +82,31 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
                   }}
                 />
                 
-                {/* Aurora Layer 3 - Fast shimmer */}
+                {/* Aurora Layer - Turquoise accent */}
+                <motion.div
+                  className="absolute inset-0 opacity-30"
+                  style={{
+                    background: 'radial-gradient(ellipse 50% 35% at 40% 50%, #0891b2 0%, transparent 45%)',
+                  }}
+                  animate={{
+                    opacity: [0.15, 0.35, 0.15],
+                    scale: [1, 1.15, 1],
+                    x: [10, -15, 10],
+                    y: [-5, 15, -5],
+                  }}
+                  transition={{
+                    duration: 7,
+                    repeat: Infinity,
+                    ease: 'easeInOut',
+                    delay: 0.8,
+                  }}
+                />
+                
+                {/* Aurora Layer 3 - Fast shimmer with turquoise */}
                 <motion.div
                   className="absolute inset-0 opacity-40"
                   style={{
-                    background: 'linear-gradient(135deg, transparent 0%, #00273F 30%, transparent 60%, #00273F 80%, transparent 100%)',
+                    background: 'linear-gradient(135deg, transparent 0%, #00273F 25%, #0e7490 45%, transparent 60%, #00273F 80%, transparent 100%)',
                   }}
                   animate={{
                     opacity: [0.2, 0.5, 0.2],
