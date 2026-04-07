@@ -34,6 +34,17 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen fixed inset-0 z-[100] bg-black overflow-hidden"
         >
+          {/* Freedom Logo - Top left */}
+          <div className="absolute top-[10px] left-[10px] md:top-[20px] md:left-[30px] z-20">
+            <Image
+              src="/logos/freedom-logo-white-orange-blue.png"
+              alt="Freedom Mobile"
+              width={140}
+              height={32}
+              className="h-[28px] md:h-[32px] w-auto"
+            />
+          </div>
+
           {/* Aurora Borealis Effect - Full page background (GPU optimized) */}
           <div className="absolute inset-0 z-0 will-change-transform">
             {/* Base gradient */}
