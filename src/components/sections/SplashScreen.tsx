@@ -157,8 +157,8 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
               {/* Image with takeover effect */}
               <motion.div
                 className="relative w-full h-full"
-                initial={{ scale: 1.4, x: -80 }}
-                animate={{ scale: 1.15, x: 0 }}
+                initial={{ scale: 1.2, x: -80 }}
+                animate={{ scale: 0.85, x: 0 }}
                 transition={{ duration: 1.5, ease: [0.25, 0.46, 0.45, 0.94] }}
               >
                 <Image
