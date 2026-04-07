@@ -150,7 +150,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 10000 }: SplashScreenPr
           {/* Content - Image takes full height including header area */}
           <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row">
             {/* Left - Image with TAKEOVER effect */}
-            <div className="splash-screen__image relative w-full md:w-[60%] h-[55%] md:h-full flex items-center justify-center">
+            <div className="splash-screen__image relative w-full md:w-[60%] h-[45%] md:h-full flex items-center justify-center">
               {/* Image with takeover effect */}
               <motion.div
                 className="relative w-full h-full"
