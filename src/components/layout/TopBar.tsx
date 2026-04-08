@@ -34,7 +34,22 @@ export function TopBar({
   };
 
   return (
-    <div className="topbar hidden md:block h-[40px] bg-black text-white">
+    <>
+      {/* Mobile floating settings button */}
+      {onSplashEnabledChange && onSplashDurationChange && onSplashTypeChange && (
+        <div className="md:hidden fixed bottom-4 right-4 z-50">
+          <SettingsPanel
+            splashEnabled={splashEnabled}
+            splashDuration={splashDuration}
+            splashType={splashType}
+            onSplashEnabledChange={onSplashEnabledChange}
+            onSplashDurationChange={onSplashDurationChange}
+            onSplashTypeChange={onSplashTypeChange}
+          />
+        </div>
+      )}
+      
+      <div className="topbar hidden md:block h-[40px] bg-black text-white">
       <Container className="topbar__container h-full">
         <nav className="topbar__nav flex h-full items-center justify-end gap-6">
           
@@ -122,5 +137,6 @@ export function TopBar({
         </nav>
       </Container>
     </div>
+    </>
   );
 }
