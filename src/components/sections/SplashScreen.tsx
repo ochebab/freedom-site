@@ -9,7 +9,7 @@ interface SplashScreenProps {
   autoCloseDelay?: number;
 }
 
-export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenProps) {
+export function SplashScreen({ onClose, autoCloseDelay = 60000 }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = () => {

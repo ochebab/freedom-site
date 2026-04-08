@@ -12,7 +12,7 @@ interface AppShellProps {
 
 export function AppShell({ children }: AppShellProps) {
   const [splashEnabled, setSplashEnabled] = useState(true);
-  const [splashDuration, setSplashDuration] = useState(10);
+  const [splashDuration, setSplashDuration] = useState(60);
   const [splashType, setSplashType] = useState<SplashType>('splash1');
   const [isLoaded, setIsLoaded] = useState(false);
 
@@ -87,7 +87,7 @@ interface SplashContextType {
 
 export const SplashContext = createContext<SplashContextType>({
   splashEnabled: true,
-  splashDuration: 10,
+  splashDuration: 60,
   splashType: 'splash1',
 });
 

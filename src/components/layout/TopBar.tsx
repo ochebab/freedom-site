@@ -19,7 +19,7 @@ interface TopBarProps {
 
 export function TopBar({
   splashEnabled = true,
-  splashDuration = 10,
+  splashDuration = 60,
   splashType = 'splash1',
   onSplashEnabledChange,
   onSplashDurationChange,
