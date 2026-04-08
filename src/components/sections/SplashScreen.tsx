@@ -43,7 +43,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
                 alt="Freedom Mobile"
                 width={140}
                 height={32}
-                className="h-[28px] md:h-[32px] w-auto"
+                className="h-[32px] w-auto"
               />
               
               {/* Close button - Both mobile and desktop */}
@@ -196,9 +196,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
               </motion.div>
             </div>
 
-            {/* Mobile separator */}
-            <div className="w-[70%] h-[1px] bg-white/20 mx-auto md:hidden flex-shrink-0 -mt-[5px]" />
-
+            
             {/* Right - Text Content (50% on desktop) */}
             <div className="splash-screen__text flex flex-col justify-start md:justify-center items-center text-center px-6 md:px-12 pt-[9px] md:py-0 w-full md:w-[50%] flex-shrink-0">
               {/* Samsung Logo */}
