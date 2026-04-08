@@ -47,37 +47,8 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           </div>
 
-          {/* Desktop: Aurora Borealis Effect */}
-          <div className="absolute inset-0 z-0 will-change-transform hidden md:block">
-            <div className="absolute inset-0 bg-gradient-to-br from-[#00273F] via-black to-black" />
-            
-            <motion.div
-              className="absolute inset-0 will-change-transform"
-              style={{
-                background: 'radial-gradient(ellipse 80% 50% at 20% 40%, #00273F 0%, transparent 50%)',
-              }}
-              animate={{ opacity: [0.4, 0.6, 0.4] }}
-              transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            
-            <motion.div
-              className="absolute inset-0 will-change-transform"
-              style={{
-                background: 'radial-gradient(ellipse 55% 40% at 35% 50%, #0891b2 0%, transparent 50%)',
-              }}
-              animate={{ opacity: [0.2, 0.4, 0.2], x: [0, 40, 0], y: [0, -30, 0] }}
-              transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut' }}
-            />
-            
-            <motion.div
-              className="absolute inset-0 will-change-transform"
-              style={{
-                background: 'radial-gradient(ellipse 40% 35% at 75% 45%, #f26a21 0%, transparent 50%)',
-              }}
-              animate={{ opacity: [0.2, 0.4, 0.2], x: [0, -35, 0], y: [0, 25, 0] }}
-              transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-            />
-          </div>
+          {/* Desktop: Black background */}
+          <div className="absolute inset-0 z-0 hidden md:block bg-black" />
 
           {/* Header bar - Logo left, Close right */}
           <div className="absolute top-0 left-0 right-0 z-20">
