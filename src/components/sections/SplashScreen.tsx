@@ -36,7 +36,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
         >
           {/* Header bar - Logo left, Close right (aligned with Container on desktop) */}
           <div className="absolute top-0 left-0 right-0 z-20">
-            <div className="mx-auto w-full px-[20px] md:px-[15px] md:max-w-[1100px] py-[20px] md:py-[24px] flex items-center justify-between">
+            <div className="mx-auto w-full px-[16px] md:px-[15px] md:max-w-[1100px] py-[16px] md:py-[24px] flex items-center justify-between">
               {/* Freedom Logo */}
               <Image
                 src="/logos/freedom-logo-white-orange-blue.png"
@@ -46,10 +46,10 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
                 className="h-[28px] md:h-[32px] w-auto"
               />
               
-              {/* Close button - Desktop only */}
+              {/* Close button - Both mobile and desktop */}
               <button
                 onClick={handleClose}
-                className="hidden md:flex items-center gap-2 text-white/80 hover:text-white transition-colors text-sm"
+                className="flex items-center gap-1 md:gap-2 text-white/80 hover:text-white transition-colors text-xs md:text-sm"
               >
                 <span>Close</span>
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -176,7 +176,7 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
           </div>
 
           {/* Content - Centered container with max dimensions */}
-          <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row p-[10px] pb-[15px] md:p-0 md:max-w-[1200px] md:min-h-[600px] md:max-h-[800px] md:mx-auto md:my-auto">
+          <div className="splash-screen__content relative z-10 h-full flex flex-col md:flex-row px-[16px] pb-[16px] md:p-0 md:max-w-[1200px] md:min-h-[600px] md:max-h-[800px] md:mx-auto md:my-auto">
             {/* Left - Image with TAKEOVER effect (50% on desktop) */}
             <div className="splash-screen__image relative w-full md:w-[50%] flex-1 md:flex-none md:h-full flex items-center justify-center overflow-hidden">
               {/* Image with takeover effect */}
@@ -240,10 +240,11 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
                 Shop Samsung Galaxy z Flip 5
               </motion.a>
 
-              {/* Learn more link - Desktop only */}
+              
+              {/* Learn more link - Both mobile and desktop */}
               <a
                 href="/samsung-galaxy-z-flip5"
-                className="hidden md:flex items-center gap-1 mt-4 hover:opacity-80 transition-opacity text-sm"
+                className="flex items-center gap-1 mt-4 hover:opacity-80 transition-opacity text-sm"
               >
                 <span className="text-[#2E7DC1] underline underline-offset-4">Learn more</span>
                 <svg className="w-4 h-4 text-[#DB5C05]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -251,18 +252,10 @@ export function SplashScreen({ onClose, autoCloseDelay = 30000 }: SplashScreenPr
                 </svg>
               </a>
 
-              {/* Disclaimer text - Desktop only */}
-              <p className="hidden md:block mt-6 text-white/40 text-xs max-w-[400px] leading-relaxed">
+              {/* Disclaimer text - Both mobile and desktop */}
+              <p className="mt-4 md:mt-6 text-white/40 text-[10px] md:text-xs max-w-[300px] md:max-w-[400px] leading-relaxed">
                 Vivamus sit et tempor neque elit turpis duis platea. Ut est ut nunc nisl ut. Interdum cras aliquam facilisi proin elit porttitor proin nulla. Interdum eu in elementum.
               </p>
-
-              {/* Continue to website link - Mobile only */}
-              <button
-                onClick={handleClose}
-                className="md:hidden splash-screen__skip mt-3 text-white/60 text-xs hover:text-white transition-colors underline underline-offset-4"
-              >
-                Continue to website
-              </button>
             </div>
           </div>
         </motion.div>
