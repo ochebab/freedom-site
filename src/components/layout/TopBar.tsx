@@ -35,19 +35,53 @@ export function TopBar({
 
   return (
     <>
-      {/* Mobile floating settings button */}
-      {onSplashEnabledChange && onSplashDurationChange && onSplashTypeChange && (
-        <div className="md:hidden fixed bottom-4 right-4 z-50">
-          <SettingsPanel
-            splashEnabled={splashEnabled}
-            splashDuration={splashDuration}
-            splashType={splashType}
-            onSplashEnabledChange={onSplashEnabledChange}
-            onSplashDurationChange={onSplashDurationChange}
-            onSplashTypeChange={onSplashTypeChange}
-          />
+      {/* Mobile floating controls */}
+      <div className="md:hidden fixed bottom-4 right-4 z-[9999] flex items-center gap-2">
+        {/* Province selector mobile */}
+        <div className="relative">
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="flex items-center gap-1 bg-black/90 text-white px-3 py-2 rounded-full text-sm shadow-lg backdrop-blur-sm"
+          >
+            <span>{selectedProvince}</span>
+            <svg
+              className={`w-3 h-3 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {isDropdownOpen && (
+            <div className="absolute bottom-full right-0 mb-2 bg-white text-black rounded-lg shadow-xl py-2 min-w-[100px]">
+              {PROVINCES.map((province) => (
+                <button
+                  key={province}
+                  onClick={() => handleProvinceSelect(province)}
+                  className={`w-full px-4 py-2 text-left text-sm hover:bg-gray-100 ${selectedProvince === province ? 'bg-gray-50 font-medium' : ''}`}
+                >
+                  {province}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
-      )}
+
+        {/* Settings wheel mobile */}
+        {onSplashEnabledChange && onSplashDurationChange && onSplashTypeChange && (
+          <div className="bg-black/90 rounded-full p-2 shadow-lg backdrop-blur-sm">
+            <SettingsPanel
+              splashEnabled={splashEnabled}
+              splashDuration={splashDuration}
+              splashType={splashType}
+              onSplashEnabledChange={onSplashEnabledChange}
+              onSplashDurationChange={onSplashDurationChange}
+              onSplashTypeChange={onSplashTypeChange}
+            />
+          </div>
+        )}
+      </div>
       
       <div className="topbar hidden md:block h-[40px] bg-black text-white">
       <Container className="topbar__container h-full">
