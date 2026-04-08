@@ -4,6 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { Container } from './Container';
+import { SettingsPanel } from './SettingsPanel';
+import type { SplashType } from './AppShell';
 
 const NAV_ITEMS = [
   { label: 'Mobile', hasDropdown: true },
@@ -15,7 +17,23 @@ const NAV_ITEMS = [
 const PROVINCES = ['AB', 'BC', 'MB', 'ON'] as const;
 type Province = typeof PROVINCES[number];
 
-export function MainNav() {
+interface MainNavProps {
+  splashEnabled?: boolean;
+  splashDuration?: number;
+  splashType?: SplashType;
+  onSplashEnabledChange?: (enabled: boolean) => void;
+  onSplashDurationChange?: (duration: number) => void;
+  onSplashTypeChange?: (type: SplashType) => void;
+}
+
+export function MainNav({
+  splashEnabled = true,
+  splashDuration = 60,
+  splashType = 'splash1',
+  onSplashEnabledChange,
+  onSplashDurationChange,
+  onSplashTypeChange,
+}: MainNavProps) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState<Province>('ON');
@@ -189,10 +207,21 @@ export function MainNav() {
 
             </div>
 
-            {/* Fixed Bottom - Province Selector */}
+            {/* Fixed Bottom - Province Selector + Settings */}
             <div className="mobile-menu__footer border-t border-gray-200 bg-white px-6 py-4 safe-area-bottom">
               <div className="flex items-center justify-between mb-2">
                 <span className="text-sm text-gray-500">Select your province</span>
+                {/* Settings Panel */}
+                {onSplashEnabledChange && onSplashDurationChange && onSplashTypeChange && (
+                  <SettingsPanel
+                    splashEnabled={splashEnabled}
+                    splashDuration={splashDuration}
+                    splashType={splashType}
+                    onSplashEnabledChange={onSplashEnabledChange}
+                    onSplashDurationChange={onSplashDurationChange}
+                    onSplashTypeChange={onSplashTypeChange}
+                  />
+                )}
               </div>
               <div className="flex gap-2">
                 {PROVINCES.map((province) => (

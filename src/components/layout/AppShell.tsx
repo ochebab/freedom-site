@@ -67,7 +67,14 @@ export function AppShell({ children }: AppShellProps) {
         onSplashDurationChange={handleSplashDurationChange}
         onSplashTypeChange={handleSplashTypeChange}
       />
-      <MainNav />
+      <MainNav
+        splashEnabled={splashEnabled}
+        splashDuration={splashDuration}
+        splashType={splashType}
+        onSplashEnabledChange={handleSplashEnabledChange}
+        onSplashDurationChange={handleSplashDurationChange}
+        onSplashTypeChange={handleSplashTypeChange}
+      />
       <SplashContext.Provider value={{ splashEnabled, splashDuration, splashType }}>
         {children}
       </SplashContext.Provider>
