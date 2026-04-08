@@ -60,15 +60,15 @@ export function SettingsPanel({
         </svg>
       </button>
 
-      {/* Settings Dropdown Panel */}
+      {/* Settings Dropdown Panel - Opens upward on mobile, downward on desktop */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            exit={{ opacity: 0, y: 10 }}
             transition={{ duration: 0.2 }}
-            className="settings-panel__dropdown absolute top-full right-0 mt-2 bg-white text-black rounded-lg shadow-xl p-4 min-w-[250px] z-50"
+            className="settings-panel__dropdown absolute bottom-full md:bottom-auto md:top-full right-0 mb-2 md:mb-0 md:mt-2 bg-white text-black rounded-lg shadow-xl p-4 min-w-[250px] z-50"
           >
             <h3 className="text-sm font-medium mb-4 text-gray-700">Paramètres</h3>
             
