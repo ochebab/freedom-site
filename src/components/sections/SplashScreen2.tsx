@@ -34,15 +34,17 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen-2 fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Mobile: Full background image */}
-          <div className="absolute inset-0 md:hidden">
-            <Image
-              src="/images/splash-image-2.png"
-              alt="Concert background"
-              fill
-              className="object-cover object-top"
-              priority
-            />
+          {/* Mobile: Full background image - 85% size, shifted right */}
+          <div className="absolute inset-0 md:hidden overflow-hidden">
+            <div className="absolute inset-0 scale-[0.85] origin-top translate-x-[8%]">
+              <Image
+                src="/images/splash-image-2.png"
+                alt="Concert background"
+                fill
+                className="object-cover object-top"
+                priority
+              />
+            </div>
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           </div>
@@ -137,29 +139,15 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
 
           {/* Mobile Content - Full screen overlay */}
           <div className="flex md:hidden flex-col justify-end items-center text-center h-full px-[16px] pb-[32px] pt-[80px] relative z-10">
-            {/* Title */}
-            <h1 className="text-[#f26a21] text-[3.5rem] leading-none font-bold mb-1">
-              250GB
-            </h1>
-            
-            {/* Subtitle with plane icon */}
-            <p className="text-white text-[1rem] tracking-wider mb-4 flex items-center gap-2">
-              ROAM BEYOND
-              <svg className="w-5 h-5 text-[#f26a21]" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/>
-              </svg>
-            </p>
-
-            {/* Price */}
-            <div className="flex items-baseline gap-1 mb-4">
-              <span className="text-white/60 text-[0.875rem]">for</span>
-              <span className="text-[#f26a21] text-[4.5rem] leading-none font-bold">$50</span>
-              <div className="flex flex-col text-left">
-                <span className="text-white text-[1rem]">/mo.</span>
-                <span className="text-white/60 text-[0.75rem]">with</span>
-                <span className="text-white/60 text-[0.75rem]">Digital</span>
-                <span className="text-white/60 text-[0.75rem]">Discount.</span>
-              </div>
+            {/* Lockup Image - 60% width, centered */}
+            <div className="w-[60%] mb-6">
+              <Image
+                src="/images/lockup.png"
+                alt="250GB $50/mo offer"
+                width={400}
+                height={200}
+                className="w-full h-auto"
+              />
             </div>
 
             {/* CTA Button */}
