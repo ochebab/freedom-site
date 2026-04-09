@@ -34,17 +34,15 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen-2 fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Mobile: Full background image - 85% size, shifted right */}
+          {/* Mobile: Full background image - shifted right to show full cowboy */}
           <div className="absolute inset-0 md:hidden overflow-hidden">
-            <div className="absolute inset-0 scale-[0.85] origin-top translate-x-[8%]">
-              <Image
-                src="/images/splash-image-2.png"
-                alt="Concert background"
-                fill
-                className="object-cover object-top"
-                priority
-              />
-            </div>
+            <Image
+              src="/images/splash-image-2.png"
+              alt="Concert background"
+              fill
+              className="object-cover object-[65%_top]"
+              priority
+            />
             {/* Dark overlay for text readability */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
           </div>
@@ -139,8 +137,8 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
 
           {/* Mobile Content - Full screen overlay */}
           <div className="flex md:hidden flex-col justify-end items-center text-center h-full px-[16px] pb-[32px] pt-[80px] relative z-10">
-            {/* Lockup Image - 60% width, centered */}
-            <div className="w-[60%] mb-6">
+            {/* Lockup Image - 85% width, centered */}
+            <div className="w-[85%] mb-6">
               <Image
                 src="/images/lockup.png"
                 alt="250GB $50/mo offer"
