@@ -40,7 +40,7 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
               src="/images/splash-image-2.png"
               alt="Concert background"
               fill
-              className="object-cover object-[65%_top]"
+              className="object-cover object-center"
               priority
             />
             {/* Dark overlay for text readability */}
@@ -137,8 +137,8 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
 
           {/* Mobile Content - Full screen overlay */}
           <div className="flex md:hidden flex-col justify-end items-center text-center h-full px-[16px] pb-[32px] pt-[80px] relative z-10">
-            {/* Lockup Image - 85% width, centered */}
-            <div className="w-[85%] mb-6">
+            {/* Lockup Image - full width, centered */}
+            <div className="w-full mb-6">
               <Image
                 src="/images/lockup.png"
                 alt="250GB $50/mo offer"
