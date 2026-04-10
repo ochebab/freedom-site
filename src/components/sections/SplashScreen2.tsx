@@ -34,10 +34,10 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="splash-screen-2 fixed inset-0 z-[100] bg-black overflow-hidden"
         >
-          {/* Mobile: Full background image - shifted right to show full cowboy */}
+          {/* Mobile: Full background image - optimized for mobile */}
           <div className="absolute inset-0 md:hidden overflow-hidden">
             <Image
-              src="/images/splash-image-2.png"
+              src="/images/splash-image-2-mobile.png"
               alt="Concert background"
               fill
               className="object-cover object-center"
