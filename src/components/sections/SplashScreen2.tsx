@@ -98,7 +98,7 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
               {/* Desktop Lockup Image */}
               <div className="w-full max-w-[400px] mb-8">
                 <Image
-                  src="/images/splash2-lockup-desktop.jpeg"
+                  src="/images/splash2-lockup-desktop.png"
                   alt="250GB $50/mo offer"
                   width={400}
                   height={300}
