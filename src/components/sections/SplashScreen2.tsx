@@ -93,28 +93,17 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
               </motion.div>
             </div>
 
-            {/* Right - Text Content (50%) */}
+            {/* Right - Lockup + CTA (50%) */}
             <div className="splash-screen-2__text flex flex-col justify-center items-center text-center px-12 py-0 w-[50%]">
-              {/* Title */}
-              <h1 className="text-[#f26a21] text-[5rem] leading-none font-bold mb-2">
-                250GB
-              </h1>
-              
-              {/* Subtitle */}
-              <p className="text-white text-[1.25rem] tracking-wider mb-6">
-                GRANDSTAND SHOWTIME OFFER
-              </p>
-
-              {/* Price */}
-              <div className="flex items-baseline gap-1 mb-2">
-                <span className="text-white/60 text-[1rem]">for</span>
-                <span className="text-[#f26a21] text-[6rem] leading-none font-bold">$50</span>
-                <div className="flex flex-col text-left">
-                  <span className="text-white text-[1.25rem]">/mo.</span>
-                  <span className="text-white/60 text-[0.875rem]">with</span>
-                  <span className="text-white/60 text-[0.875rem]">Digital</span>
-                  <span className="text-white/60 text-[0.875rem]">Discount.</span>
-                </div>
+              {/* Desktop Lockup Image */}
+              <div className="w-full max-w-[400px] mb-8">
+                <Image
+                  src="/images/splash2-lockup-desktop.jpeg"
+                  alt="250GB $50/mo offer"
+                  width={400}
+                  height={300}
+                  className="w-full h-auto"
+                />
               </div>
 
               {/* CTA Button */}
