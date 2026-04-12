@@ -50,7 +50,7 @@ export function SplashScreen3({ onClose, autoCloseDelay = 60000 }: SplashScreen3
           <div className="absolute top-0 left-0 right-0 z-20">
             <div className="mx-auto w-full px-[16px] md:px-[15px] md:max-w-[1200px] py-[16px] md:py-[24px] flex items-center justify-between">
               <Image
-                src="/logos/freedom-logo.png"
+                src="/logos/freedom logo - black.svg"
                 alt="Freedom Mobile"
                 width={140}
                 height={32}
@@ -117,9 +117,9 @@ export function SplashScreen3({ onClose, autoCloseDelay = 60000 }: SplashScreen3
               {/* CTA Button */}
               <motion.a
                 href="/shop/iphone-17-pro"
-                className="splash-screen-3__cta inline-block bg-[#f26a21] text-white px-10 py-4 rounded-full text-[1rem]"
+                className="splash-screen-3__cta inline-block bg-[#f26a21] text-white px-8 py-4 rounded-full text-[1rem]"
                 initial={{ backgroundColor: '#f26a21' }}
-                whileHover={{ backgroundColor: '#d55a1a' }}
+                whileHover={{ backgroundColor: '#ffffff', color: '#000000' }}
                 transition={{ duration: 0.3, ease: 'easeOut' }}
               >
                 Shop iPhone 17 Pro
@@ -184,7 +184,8 @@ export function SplashScreen3({ onClose, autoCloseDelay = 60000 }: SplashScreen3
               {/* CTA Button */}
               <motion.a
                 href="/shop/iphone-17-pro"
-                className="splash-screen-3__cta inline-block bg-[#f26a21] text-white px-8 py-3 rounded-full text-sm w-full max-w-[280px]"
+                className="splash-screen-3__cta inline-block bg-[#f26a21] text-white px-8 py-4 rounded-full text-[1rem] w-full max-w-[280px]"
+                initial={{ backgroundColor: '#f26a21' }}
                 whileTap={{ scale: 0.98 }}
               >
                 Shop iPhone 17 Pro
