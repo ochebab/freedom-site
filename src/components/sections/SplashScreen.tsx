@@ -11,6 +11,7 @@ interface SplashScreenProps {
 
 export function SplashScreen({ onClose, autoCloseDelay = 60000 }: SplashScreenProps) {
   const [isVisible, setIsVisible] = useState(true);
+  const [progress, setProgress] = useState(100);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -22,7 +23,18 @@ export function SplashScreen({ onClose, autoCloseDelay = 60000 }: SplashScreenPr
       handleClose();
     }, autoCloseDelay);
 
-    return () => clearTimeout(timer);
+    // Progress bar animation
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const newProgress = prev - (100 / (autoCloseDelay / 100));
+        return newProgress > 0 ? newProgress : 0;
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
   }, [autoCloseDelay]);
 
   return (
@@ -254,6 +266,18 @@ export function SplashScreen({ onClose, autoCloseDelay = 60000 }: SplashScreenPr
               <p className="mt-4 md:mt-6 text-white/40 text-[10px] md:text-xs max-w-[300px] md:max-w-[400px] leading-relaxed">
                 Vivamus sit et tempor neque elit turpis duis platea. Ut est ut nunc nisl ut. Interdum cras aliquam facilisi proin elit porttitor proin nulla. Interdum eu in elementum.
               </p>
+            </div>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="absolute bottom-[20px] left-[16px] right-[16px] z-20">
+            <div className="w-full h-[3px] bg-white/20 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-[#f26a21]"
+                initial={{ width: '100%' }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.1, ease: 'linear' }}
+              />
             </div>
           </div>
         </motion.div>

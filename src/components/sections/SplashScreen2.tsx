@@ -11,6 +11,7 @@ interface SplashScreen2Props {
 
 export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2Props) {
   const [isVisible, setIsVisible] = useState(true);
+  const [progress, setProgress] = useState(100);
 
   const handleClose = () => {
     setIsVisible(false);
@@ -22,7 +23,18 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
       handleClose();
     }, autoCloseDelay);
 
-    return () => clearTimeout(timer);
+    // Progress bar animation
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const newProgress = prev - (100 / (autoCloseDelay / 100));
+        return newProgress > 0 ? newProgress : 0;
+      });
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      clearInterval(interval);
+    };
   }, [autoCloseDelay]);
 
   return (
@@ -157,6 +169,18 @@ export function SplashScreen2({ onClose, autoCloseDelay = 60000 }: SplashScreen2
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>
             </a>
+          </div>
+
+          {/* Progress Bar */}
+          <div className="absolute bottom-[20px] left-[16px] right-[16px] z-20">
+            <div className="w-full h-[3px] bg-white/20 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-[#f26a21]"
+                initial={{ width: '100%' }}
+                animate={{ width: `${progress}%` }}
+                transition={{ duration: 0.1, ease: 'linear' }}
+              />
+            </div>
           </div>
         </motion.div>
       )}
