@@ -5,6 +5,7 @@ import { HeroCarousel } from './HeroCarousel';
 import { TertiaryNav, defaultTertiaryNavItems } from './TertiaryNav';
 import { SplashScreen } from './SplashScreen';
 import { SplashScreen2 } from './SplashScreen2';
+import { SplashScreen3 } from './SplashScreen3';
 import { useSplashSettings } from '@/components/layout';
 import type { HeroSlideData } from './HeroSlide';
 
@@ -26,7 +27,7 @@ export function HomeContent({ heroSlides }: HomeContentProps) {
       case 'splash2':
         return <SplashScreen2 {...props} />;
       case 'splash3':
-        return <SplashScreen {...props} />; // Placeholder for splash3
+        return <SplashScreen3 {...props} />;
       case 'splash1':
       default:
         return <SplashScreen {...props} />;

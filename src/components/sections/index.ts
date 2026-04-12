@@ -4,4 +4,5 @@ export type { HeroSlideData } from './HeroSlide';
 export { TertiaryNav, defaultTertiaryNavItems } from './TertiaryNav';
 export { SplashScreen } from './SplashScreen';
 export { SplashScreen2 } from './SplashScreen2';
+export { SplashScreen3 } from './SplashScreen3';
 export { HomeContent } from './HomeContent';
